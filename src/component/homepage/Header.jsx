@@ -163,7 +163,7 @@ const Header = () => {
           {/* Individuals & Families Dropdown */}
           <div className='relative group'>
             <button
-              className={`font-['DM_Sans'] text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 flex items-center gap-1 ${
+              className={`font-['DM_Sans'] cursor-pointer text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 flex items-center gap-1 ${
                 scrolled ? "text-[#1a1a1a]" : "text-white"
               }`}>
               Individuals & Families
@@ -175,7 +175,7 @@ const Header = () => {
                   <button
                     key={service.id}
                     onClick={() => handleNavigation("personal", service.id)}
-                    className='flex items-start gap-3 px-4 py-3 hover:bg-[#f5f3f0] transition-colors duration-150 text-left group/item'>
+                    className='flex items-start gap-3 cursor-pointer px-4 py-3 w-full hover:bg-[#f5f3f0] transition-colors duration-150 text-left group/item'>
                     <span className='text-xl'>{service.icon}</span>
                     <div>
                       <div className="font-['DM_Sans'] text-[13px] font-medium text-[#333] group-hover/item:text-[#1a1a1a]">
@@ -191,7 +191,7 @@ const Header = () => {
           {/* Businesses Dropdown */}
           <div className='relative group'>
             <button
-              className={`font-['DM_Sans'] text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 flex items-center gap-1 ${
+              className={`font-['DM_Sans'] cursor-pointer  text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 flex items-center gap-1 ${
                 scrolled ? "text-[#1a1a1a]" : "text-white"
               }`}>
               Businesses
@@ -203,7 +203,7 @@ const Header = () => {
                   <button
                     key={service.id}
                     onClick={() => handleNavigation("business", service.id)}
-                    className='flex items-start gap-3 px-4 py-3 hover:bg-[#f5f3f0] transition-colors duration-150 text-left group/item'>
+                    className='flex items-start w-full cursor-pointer gap-3 px-4 py-3 hover:bg-[#f5f3f0] transition-colors duration-150 text-left group/item'>
                     <span className='text-xl'>{service.icon}</span>
                     <div>
                       <div className="font-['DM_Sans'] text-[13px] font-medium text-[#333] group-hover/item:text-[#1a1a1a]">
@@ -223,7 +223,7 @@ const Header = () => {
                 .getElementById("about-section")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className={`font-['DM_Sans'] text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 ${
+            className={`font-['DM_Sans'] cursor-pointer text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 ${
               scrolled ? "text-[#1a1a1a]" : "text-white"
             }`}>
             About

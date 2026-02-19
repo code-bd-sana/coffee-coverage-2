@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import bannerImage from "@/../public/banner/banner.jpg";
+import bannerImage1 from "@/../public/banner/banner1.jpg";
+import bannerImage2 from "@/../public/banner/banner2.jpg";
+import bannerImage3 from "@/../public/banner/banner3.jpg";
+import bannerImage4 from "@/../public/banner/banner4.jpg";
 import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
 
 const slides = [
   {
     id: 1,
-    imageUrl:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80",
+    imageUrl: bannerImage,
     tag: "Miami's Trusted Insurance Advisor",
     title: "Protecting What",
     emphasis: "Matters Most",
@@ -16,8 +20,7 @@ const slides = [
   },
   {
     id: 2,
-    imageUrl:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    imageUrl: bannerImage1,
     tag: "Comprehensive Coverage",
     title: "Secure Your",
     emphasis: "Family's Future",
@@ -26,8 +29,25 @@ const slides = [
   },
   {
     id: 3,
-    imageUrl:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    imageUrl: bannerImage2,
+    tag: "Business Protection",
+    title: "Safeguard Your",
+    emphasis: "Enterprise",
+    description:
+      "Commercial insurance solutions to protect your business assets and operations.",
+  },
+  {
+    id: 4,
+    imageUrl: bannerImage3,
+    tag: "Business Protection",
+    title: "Safeguard Your",
+    emphasis: "Enterprise",
+    description:
+      "Commercial insurance solutions to protect your business assets and operations.",
+  },
+  {
+    id: 5,
+    imageUrl: bannerImage4,
     tag: "Business Protection",
     title: "Safeguard Your",
     emphasis: "Enterprise",
@@ -90,7 +110,13 @@ const HeroSection = () => {
                 ? "active opacity-100 z-[1]"
                 : "opacity-0 z-0"
             }`}>
-            <div className='hero-slide-photo absolute inset-[-5%] w-[110%] h-[110%] will-change-transform'>
+            <div
+              className={`hero-slide-photo absolute inset-[-5%] w-[110%] h-[110%] will-change-transform ${
+                index === currentSlide ? "animate-ken-burns" : ""
+              }`}
+              style={{
+                transform: index === currentSlide ? "scale(1)" : "scale(1.1)",
+              }}>
               <Image
                 src={slide.imageUrl}
                 alt={`Slide ${index + 1}`}
@@ -159,6 +185,41 @@ const HeroSection = () => {
           style={{ width: `${progress}%` }}
         />
       </div>
+
+      {/* Add the animation styles */}
+      <style jsx>{`
+        @keyframes kenBurns {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        .animate-ken-burns {
+          animation: kenBurns 20s ease-in-out infinite;
+        }
+
+        @keyframes slideLeft {
+          0% {
+            transform: translateX(0) scale(1);
+          }
+          50% {
+            transform: translateX(-2%) scale(1.1);
+          }
+          100% {
+            transform: translateX(0) scale(1);
+          }
+        }
+
+        .animate-slide-left {
+          animation: slideLeft 20s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };
