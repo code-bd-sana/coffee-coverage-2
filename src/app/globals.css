@@ -1,26 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --ken: kenZoomIn;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "DM Sans", sans-serif;
+  padding-top: 72px; /* Header height */
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default button styles */
+button {
+  cursor: pointer;
+  padding: 12px 30px;
+}
+@keyframes kenZoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes kenZoomOut {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes kenPanLeft {
+  0% {
+    transform: scale(1.05) translateX(2%);
+  }
+  100% {
+    transform: scale(1.08) translateX(-2%);
+  }
+}
+
+@keyframes kenPanRight {
+  0% {
+    transform: scale(1.05) translateX(-2%);
+  }
+  100% {
+    transform: scale(1.08) translateX(2%);
+  }
+}
+
+@keyframes kenPanUp {
+  0% {
+    transform: scale(1.05) translateY(2%);
+  }
+  100% {
+    transform: scale(1.08) translateY(-1%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-slide.active .hero-slide-photo {
+  animation: var(--ken) 3.5s ease-out forwards;
 }
