@@ -98,7 +98,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className='hero relative h-[calc(100vh-72px)] mt-[72px] overflow-hidden bg-black'
+      className='hero relative h-[calc(100vh-72px)]  overflow-hidden bg-black'
       id='hero'>
       {/* Slides */}
       <div id='heroSlides'>
