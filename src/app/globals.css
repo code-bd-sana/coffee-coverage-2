@@ -12,6 +12,20 @@ body {
   font-family: "DM Sans", sans-serif;
   padding-top: 72px; /* Header height */
 }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+button,
+li,
+label {
+  font-family: "DM Sans", sans-serif !important;
+}
 
 /* Smooth scrolling */
 html {
