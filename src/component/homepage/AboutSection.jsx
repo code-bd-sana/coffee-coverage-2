@@ -33,7 +33,7 @@ const AboutSection = () => {
             strategies that go beyond standard protection.
           </p>
           <button
-            className="inline-block px-8 py-3 bg-white  text-black border-none rounded-md font-['DM_Sans'] text-base font-medium cursor-pointer transition-colors duration-300 hover:bg-blue-700"
+            className="inline-block px-8 py-3 bg-white  text-black border-none rounded-md font-['DM_Sans'] text-base font-medium cursor-pointer transition-colors duration-300 "
             onClick={() => showPage("quote", "homeowners")}>
             Work with Kevin
           </button>

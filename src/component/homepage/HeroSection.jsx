@@ -6,6 +6,7 @@ import bannerImage2 from "@/../public/banner/banner2.jpg";
 import bannerImage3 from "@/../public/banner/banner3.jpg";
 import bannerImage4 from "@/../public/banner/banner4.jpg";
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 const slides = [
@@ -152,16 +153,16 @@ const HeroSection = () => {
           {slides[currentSlide].description}
         </p>
         <div className='hero-btns flex gap-4 flex-wrap'>
-          <button
-            className="btn-primary font-['DM_Sans'] text-[12px] font-semibold tracking-[1.5px] uppercase px-9 py-[14px] bg-white text-[#1a1a1a] border-none rounded transition-transform hover:-translate-y-0.5"
-            onClick={handleGetQuote}>
+          <Link
+            href={"/quote/homeowners"}
+            className="btn-primary font-['DM_Sans'] text-[12px] font-semibold tracking-[1.5px] uppercase px-9 py-[14px] bg-white text-[#1a1a1a] border-none rounded transition-transform hover:-translate-y-0.5">
             Get a Quote
-          </button>
-          <button
-            className="btn-outline font-['DM_Sans'] text-[12px] font-medium tracking-[1.5px] uppercase px-9 py-[14px] bg-transparent text-white border border-white/35 rounded transition-colors hover:bg-white/10"
-            onClick={handleServicesClick}>
+          </Link>
+          <Link
+            href={"#familInsurance"}
+            className="btn-outline font-['DM_Sans'] text-[12px] font-medium tracking-[1.5px] uppercase px-9 py-[14px] bg-transparent text-white border border-white/35 rounded transition-colors hover:bg-white/10">
             Our Services
-          </button>
+          </Link>
         </div>
       </div>
 

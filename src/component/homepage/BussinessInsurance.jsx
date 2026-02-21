@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 const BUSINESS_SERVICES = [
   {
@@ -6,46 +8,54 @@ const BUSINESS_SERVICES = [
     label: "General Liability",
     icon: "🛡️",
     desc: "Protect your business from third-party claims of bodily injury and property damage.",
+    link: "/quote/general-liability",
   },
   {
     id: "workers-comp",
     label: "Workers Compensation",
     icon: "👷",
     desc: "Coverage for employee injuries and illnesses that occur in the workplace.",
+    link: "/quote/workers-comp",
   },
   {
     id: "commercial-property",
     label: "Commercial Property",
     icon: "🏗️",
     desc: "Safeguard your business property, equipment, and inventory from loss.",
+    link: "/quote/commercial-property",
   },
   {
     id: "commercial-auto",
     label: "Commercial Auto",
     icon: "🚛",
     desc: "Fleet and commercial vehicle insurance for businesses of every size.",
+    link: "/quote/commercial-auto",
   },
   {
     id: "professional-liability",
     label: "Professional Liability",
     icon: "⚖️",
     desc: "Errors & omissions coverage for professional service providers.",
+    link: "/quote/professional-liability",
   },
   {
     id: "cyber",
     label: "Cyber Insurance",
     icon: "🔒",
     desc: "Protection against data breaches, cyber attacks, and digital threats.",
+    link: "/quote/cyber",
   },
   {
     id: "directors-officers",
     label: "Directors & Officers",
     icon: "📋",
     desc: "D&O liability coverage protecting leadership from personal losses.",
+    link: "/quote/directors-officers",
   },
 ];
 
 const BussinessInsurance = () => {
+  const router = useRouter();
   return (
     <section className='bg-[#f4f4f4] py-20'>
       <div className='max-w-7xl mx-auto px-6'>
@@ -64,7 +74,10 @@ const BussinessInsurance = () => {
           {BUSINESS_SERVICES.map((service) => (
             <div
               key={service.id}
-              className='bg-white rounded-xl border border-gray-200 p-8 shadow-sm hover:shadow-md transition duration-300'>
+              onClick={() => {
+                router.push(service.link);
+              }}
+              className='bg-white rounded-xl cursor-pointer border border-gray-200 p-8 shadow-sm hover:shadow-md transition duration-300'>
               <div className='text-3xl mb-6'>{service.icon}</div>
 
               <h3 className='text-lg font-semibold text-gray-900 mb-3'>
@@ -75,9 +88,11 @@ const BussinessInsurance = () => {
                 {service.desc}
               </p>
 
-              <button className='text-sm font-semibold tracking-wide border-b border-black inline-flex items-center gap-2 hover:gap-3 transition-all duration-200'>
+              <a
+                href={service.link}
+                className='text-sm font-semibold tracking-wide border-b border-black inline-flex items-center gap-2 hover:gap-3 transition-all duration-200'>
                 GET A QUOTE →
-              </button>
+              </a>
             </div>
           ))}
         </div>

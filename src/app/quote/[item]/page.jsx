@@ -1,8 +1,9 @@
 "use client";
 import QuoteForm from "@/component/form/QuoteForm";
-import React from "react";
+import { useParams } from "next/navigation";
 
 const App = () => {
+  const params = useParams().item;
   const handleFormSubmit = async (submissionData) => {
     console.log("Form submitted to parent:", submissionData);
 
@@ -27,7 +28,7 @@ const App = () => {
 
   return (
     <div>
-      <QuoteForm formType='homeowners' onSubmit={handleFormSubmit} />
+      <QuoteForm formType={params} onSubmit={handleFormSubmit} />
     </div>
   );
 };

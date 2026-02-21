@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const PERSONAL_SERVICES = [
@@ -6,54 +9,63 @@ const PERSONAL_SERVICES = [
     label: "Homeowners Insurance",
     icon: "🏠",
     desc: "Protect your home and everything in it with comprehensive coverage tailored to your lifestyle.",
+    link: "/quote/homeowners",
   },
   {
     id: "condo",
     label: "Condos / Co-Ops",
     icon: "🏢",
     desc: "Specialized coverage for condo and co-op owners, low and high-rises.",
+    link: "/quote/condo",
   },
   {
     id: "renters",
     label: "Renters Insurance",
     icon: "🔑",
     desc: "Affordable protection for your personal belongings, liability, and living expenses.",
+    link: "/quote/renters",
   },
   {
     id: "auto",
     label: "Auto Insurance",
     icon: "🚗",
     desc: "Full coverage for your vehicles with competitive rates from top-rated carriers.",
+    link: "/quote/auto",
   },
   {
     id: "boat",
     label: "Boat Insurance",
     icon: "⛵",
     desc: "Comprehensive marine coverage for watercraft on Biscayne Bay and beyond.",
+    link: "/quote/boat",
   },
   {
     id: "life",
     label: "Life Insurance",
     icon: "❤️",
     desc: "Secure your family's financial future with term and permanent life insurance solutions.",
+    link: "/quote/life",
   },
   {
     id: "jewelry",
     label: "Jewelry & Collections",
     icon: "💎",
     desc: "Specialized coverage for fine jewelry, watches, art, wine, and valuable collections.",
+    link: "/quote/jewelry",
   },
   {
     id: "umbrella",
     label: "Umbrella Insurance",
     icon: "☂️",
     desc: "Extra liability protection that goes beyond the limits of your standard policies.",
+    link: "/quote/umbrella",
   },
 ];
 
 const FamilyInsurance = () => {
+  const router = useRouter();
   return (
-    <section className='bg-[#f4f4f4] py-20'>
+    <section id='familInsurance' className='bg-[#f4f4f4] py-20'>
       <div className='max-w-7xl mx-auto px-6'>
         {/* Header */}
         <div className='text-center mb-16'>
@@ -69,8 +81,11 @@ const FamilyInsurance = () => {
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10'>
           {PERSONAL_SERVICES.map((service) => (
             <div
+              onClick={() => {
+                router.push(service.link);
+              }}
               key={service.id}
-              className='bg-white rounded-xl border border-gray-200 p-8 shadow-sm hover:shadow-md transition duration-300'>
+              className='bg-white rounded-xl cursor-pointer border border-gray-200 p-8 shadow-sm hover:shadow-md transition duration-300'>
               <div className='text-3xl mb-6'>{service.icon}</div>
 
               <h3 className='text-lg font-semibold text-gray-900 mb-3'>
@@ -81,9 +96,11 @@ const FamilyInsurance = () => {
                 {service.desc}
               </p>
 
-              <button className='text-sm font-semibold tracking-wide border-b border-black inline-flex items-center gap-2 hover:gap-3 transition-all duration-200'>
+              <a
+                href={service.link}
+                className='text-sm font-semibold tracking-wide border-b border-black inline-flex items-center gap-2 hover:gap-3 transition-all duration-200'>
                 GET A QUOTE →
-              </button>
+              </a>
             </div>
           ))}
         </div>

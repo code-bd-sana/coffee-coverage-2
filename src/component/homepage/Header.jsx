@@ -134,7 +134,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 px-[5%] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400   md:px-[5%] ${
         scrolled
           ? "bg-white/97 backdrop-blur-xl border-b border-black/8"
           : "bg-black/15 border-b border-white/15"
@@ -145,13 +145,13 @@ const Header = () => {
           onClick={() => handleNavigation("home")}
           className='flex items-baseline gap-2 cursor-pointer'>
           <span
-            className={`text-[22px] font-bold tracking-[1px] transition-colors duration-300 ${
+            className={`text-[15px] md:text-[22px] whitespace-nowrap font-bold tracking-[1px] transition-colors duration-300 ${
               scrolled ? "text-[#1a1a1a]" : "text-white"
             }`}>
             KEVIN VIGNOLO
           </span>
           <span
-            className={`font-['DM_Sans'] text-[10px] tracking-[2px] uppercase opacity-60 transition-colors duration-300 ${
+            className={`font-['DM_Sans'] text-[8px] md:text-[10px] tracking-[2px] uppercase opacity-60 transition-colors duration-300 ${
               scrolled ? "text-[#1a1a1a]" : "text-white"
             }`}>
             Insurance
@@ -159,11 +159,11 @@ const Header = () => {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className='hidden lg:flex items-center gap-8'>
+        <nav className='hidden lg:flex items-center '>
           {/* Individuals & Families Dropdown */}
           <div className='relative group'>
             <button
-              className={`font-['DM_Sans'] cursor-pointer text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 flex items-center gap-1 ${
+              className={`font-['DM_Sans'] whitespace-nowrap cursor-pointer text-[13px] font-medium tracking-[0.5px] uppercase py-2 transition-colors duration-300 flex items-center gap-1 ${
                 scrolled ? "text-[#1a1a1a]" : "text-white"
               }`}>
               Individuals & Families
@@ -232,7 +232,7 @@ const Header = () => {
           {/* Quote Button */}
           <button
             onClick={() => handleNavigation("quote", "homeowners")}
-            className={`font-['DM_Sans'] text-[12px] font-semibold tracking-[1.5px] uppercase py-2.5 rounded transition-all duration-300  ${
+            className={`font-['DM_Sans'] text-[12px] whitespace-nowrap font-semibold tracking-[1.5px] uppercase py-2.5 rounded transition-all duration-300  ${
               scrolled
                 ? "bg-[#1a1a1a] text-white px-8"
                 : "bg-white text-[#1a1a1a] px-8"

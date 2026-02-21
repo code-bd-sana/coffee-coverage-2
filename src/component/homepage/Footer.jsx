@@ -2,22 +2,22 @@
 import React from "react";
 
 const Footer = () => {
-  // Personal Lines লিংক
+  // Personal Lines লিংক with proper quote paths
   const personalLines = [
-    "Homeowners Insurance",
-    "Auto Insurance",
-    "Flood Insurance",
-    "High-Value Property",
-    "Personal Umbrella",
+    { name: "Homeowners Insurance", link: "/quote/homeowners" },
+    { name: "Auto Insurance", link: "/quote/auto" },
+    { name: "Flood Insurance", link: "/quote/flood" },
+    { name: "High-Value Property", link: "/quote/high-value-property" },
+    { name: "Personal Umbrella", link: "/quote/personal-umbrella" },
   ];
 
-  // Commercial Lines লিংক
+  // Commercial Lines লিংক with proper quote paths
   const commercialLines = [
-    "General Liability",
-    "Commercial Property",
-    "Workers Compensation",
-    "Business Auto",
-    "Professional Liability",
+    { name: "General Liability", link: "/quote/general-liability" },
+    { name: "Commercial Property", link: "/quote/commercial-property" },
+    { name: "Workers Compensation", link: "/quote/workers-comp" },
+    { name: "Business Auto", link: "/quote/business-auto" },
+    { name: "Professional Liability", link: "/quote/professional-liability" },
   ];
 
   return (
@@ -50,12 +50,12 @@ const Footer = () => {
           </p>
           <div>
             {personalLines.map((item, index) => (
-              <button
+              <a
                 key={index}
-                className="block w-full text-left font-['DM_Sans'] text-[13px] text-white/50 bg-transparent border-none py-1 transition-colors duration-200 hover:text-white cursor-pointer"
-                onClick={() => console.log("Navigate to:", item)}>
-                {item}
-              </button>
+                href={item.link}
+                className="block w-full text-left font-['DM_Sans'] text-[13px] text-white/50 bg-transparent border-none py-1 transition-colors duration-200 hover:text-white cursor-pointer no-underline">
+                {item.name}
+              </a>
             ))}
           </div>
         </div>
@@ -67,12 +67,12 @@ const Footer = () => {
           </p>
           <div>
             {commercialLines.map((item, index) => (
-              <button
+              <a
                 key={index}
-                className="block w-full text-left font-['DM_Sans'] text-[13px] text-white/50 bg-transparent border-none py-1 transition-colors duration-200 hover:text-white cursor-pointer"
-                onClick={() => console.log("Navigate to:", item)}>
-                {item}
-              </button>
+                href={item.link}
+                className="block w-full text-left font-['DM_Sans'] text-[13px] text-white/50 bg-transparent border-none py-1 transition-colors duration-200 hover:text-white cursor-pointer no-underline">
+                {item.name}
+              </a>
             ))}
           </div>
         </div>
